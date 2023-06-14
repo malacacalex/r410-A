@@ -1,0 +1,9 @@
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
+
+COPY app1.py app1.py
+
+RUN apt-get update && apt-get install -y default-libmysqlclient-dev
+RUN pip install fastapi uvicorn sqlalchemy
+
+CMD uvicorn, app1:app, --host, 0.0.0.0, --port, 8080
+
